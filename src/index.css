@@ -1,0 +1,160 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 46 38% 95%;
+    --foreground: 274 34% 18%;
+
+    --card: 46 38% 95%;
+    --card-foreground: 274 34% 18%;
+
+    --popover: 46 38% 95%;
+    --popover-foreground: 274 34% 18%;
+
+    --primary: 271 40% 40%;
+    --primary-foreground: 46 38% 95%;
+
+    --secondary: 44 76% 52%;
+    --secondary-foreground: 274 34% 18%;
+
+    --muted: 271 20% 86%;
+    --muted-foreground: 271 20% 40%;
+
+    --accent: 0 54% 41%;
+    --accent-foreground: 46 38% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 46 38% 95%;
+
+    --border: 271 20% 80%;
+    --input: 271 20% 80%;
+    --ring: 271 40% 40%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+    background-repeat: repeat;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .fantasy-border {
+    border: 2px solid theme('colors.fantasy.gold');
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  }
+  
+  .scroll-container {
+    background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+    border: 4px solid theme('colors.fantasy.darkPurple');
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .scroll-container::before, .scroll-container::after {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    left: 0;
+    background: theme('colors.fantasy.darkPurple');
+  }
+  
+  .scroll-container::before {
+    top: 0;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .scroll-container::after {
+    bottom: 0;
+    border-radius: 0 0 8px 8px;
+  }
+}
+
+/* Hero Section Styles */
+.hero-section {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(42, 27, 60, 0.8), rgba(93, 62, 142, 0.7));
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Feature Card Animation */
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Testimonial Card Styles */
+.testimonial-card {
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Button Animation */
+.cta-button {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(93, 62, 142, 0.4);
+}
+
+.cta-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.cta-button:hover::after {
+  height: 100%;
+}
